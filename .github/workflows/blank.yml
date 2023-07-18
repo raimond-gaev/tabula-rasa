@@ -10,6 +10,10 @@ on:
         options:
           - dev
           - prod
+      deploy:
+        description: 'Deploy from this branch to the specified stage'
+        type: boolean
+        required: true
 
 jobs:
   build:
