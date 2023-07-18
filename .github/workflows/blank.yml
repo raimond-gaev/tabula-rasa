@@ -15,10 +15,15 @@ on:
         type: boolean
         default: false
         required: true
-
+#concurrency:
+#  group: 
 jobs:
   build:
     if: ${{ inputs.stage == 'dev' && inputs.deploy == true}}
     runs-on: ubuntu-latest
     steps:
       - run: nc -zv -w 1 google.com 443
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{github.ref}}
