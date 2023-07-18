@@ -13,11 +13,12 @@ on:
       deploy:
         description: 'Deploy from this branch to the specified stage'
         type: boolean
+        default: false
         required: true
 
 jobs:
   build:
-    if: ${{ inputs.stage == 'dev' }}
+    if: ${{ inputs.stage == 'dev' && inputs.deploy == true}}
     runs-on: ubuntu-latest
     steps:
       - run: nc -zv -w 1 google.com 443
