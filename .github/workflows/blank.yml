@@ -22,10 +22,13 @@ concurrency:
   
 jobs:
   build:
-    if: ${{ inputs.deploy == true || github.ref == 'refs/heads/master'}} && inputs.stage == 'dev'
+    #if: ${{ inputs.deploy == true || github.ref == 'refs/heads/master'}} && inputs.stage == 'dev'
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{github.ref}}
+      - if: ${{ inputs.stage == 'dev' }}
+        run: echo dev
+      - if: ${{ inputs.stage == 'prod' }}
+        run: echo prod
   #test:
   #  needs: build
   #  runs-on: ubuntu-latest
