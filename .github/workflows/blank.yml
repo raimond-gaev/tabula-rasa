@@ -22,12 +22,12 @@ concurrency:
   
 jobs:
   build:
-    if: ${{ inputs.stage == 'dev' && inputs.deploy == true}}
+    if: ${{ inputs.stage == 'dev' && inputs.deploy == true || github.ref == 'refs/heads/master'}}
     runs-on: ubuntu-latest
     steps:
       - run: nc -zv -w 1 google.com 443
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{github.ref}}
+  #test:
+  #  needs: build
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - run: echo ${{github.ref}}
