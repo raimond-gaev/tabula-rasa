@@ -17,7 +17,7 @@ on:
         required: true
         
 concurrency:
-  group: ${{ inputs.stage }}
+  group: build-and-test
   cancel-in-progress: false
   
 jobs:
