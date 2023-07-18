@@ -26,6 +26,7 @@ jobs:
     steps:
       - run: nc -zv -w 1 google.com 443
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{github.ref}}
