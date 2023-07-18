@@ -17,6 +17,7 @@ on:
 
 jobs:
   build:
+    if: ${{ inputs.stage == 'dev' }}
     runs-on: ubuntu-latest
     steps:
       - run: nc -zv -w 1 google.com 443
