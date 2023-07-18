@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: ${{ inputs.stage == 'dev' }}
-        run: echo dev
+        run: echo ${{ inputs.stage}} > text.txt
       - if: ${{ inputs.stage == 'prod' }}
         run: echo prod
   #test:
