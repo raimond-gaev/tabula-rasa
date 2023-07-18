@@ -15,8 +15,10 @@ on:
         type: boolean
         default: false
         required: true
-#concurrency:
-#  group: 
+        
+concurrency:
+  group: ${{ inputs.stage }} 
+  
 jobs:
   build:
     if: ${{ inputs.stage == 'dev' && inputs.deploy == true}}
